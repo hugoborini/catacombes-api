@@ -1,77 +1,57 @@
 <?php
 require "model/model.php";
 
-
-function spicySauce($req){
-    $i =0;
+function createJson ($req){
+    $i = 0;
     $y = 0;
+    $tab_tmp =[];
     $x = 0;
-    $tab_tmp = [];
 
-    while($data = $req->fetch()){
-        
-        $tab_tmp[$i]['id'] = $data['id'];
-        $tab_tmp[$i]['room_name'] = $data["room_name"];
-        $tab_tmp[$i]['room_dercrip'] = $data["room_describ"];
-        $pics = getPics($data['id']);
-        $facts = getFacts($data['id']);
-        while($data_pics = $pics->fetch()){
+    while ($data = $req->fetch()){
+        $tab_tmp[$i]['id'] = $data['id_room'];
+        $tab_tmp[$i]['room_name'] = $data["name"];
+        $tab_tmp[$i]['room_describ'] = $data['description'];
+        $picsFacts = getPicsAndFacts($data['id_room']);
+        while($data_picsFacts = $picsFacts->fetch()){
             $y++;
-            if($data['id'] == $data_pics["room_id"]){
-                $tab_tmp[$i]['poster']["p".$y] = $data_pics["poster"];
+            if($data['id_room'] == $data_picsFacts['id_room']){
+                $tab_tmp[$i]['pics']["p" .$y] = $data_picsFacts["name"];
+                if (!empty($data_picsFacts["fact"])){
+                    $x++;
+                    $tab_tmp[$i]['facts']["f" . $x] = $data_picsFacts['fact'];
+                }
+                
             }
-            ;
         }
         $y = 0;
-        while($data_facts = $facts->fetch()){
-            $y++;
-            if($data['id'] == $data_facts["room_id"]){
-                $tab_tmp[$i]['facts']["f".$y] = $data_facts["room_facts"];
-            }
-        }
-        $y=0;
+        $x = 0;
         $i++;
     }
 
     return $tab_tmp;
-
 }
-
 
 function getAllRoomToJson(){
-    
-
     $req = getAllRoom();
-    
-    $tab_concat = spicySauce($req);
 
-    $retour['success'] = true;
-    $retour['msg'] = "tt est en ordre chakal";
-    $retour["result"]['room'] = $tab_concat;
+    $tab_tmp = createJson($req);
 
+    $result['result'] = $tab_tmp;
 
-    $json_tab = json_encode($retour);
+    $json_tab = json_encode($result);
+    return $json_tab;
+
+}
+
+function getRoomToJson($room){
+    $req = getRoom($room);
+
+    $tab_tmp = createJson($req);
+
+    $result['result'] = $tab_tmp;
+
+    $json_tab = json_encode($result);
 
     return $json_tab;
+
 }
-
-function getRoomToJson($name){
-    $req = getRoom($name);
-
-    $tab_concat = spicySauce($req);
-
-    $retour['success'] = true;
-    $retour['msg'] = "tt est en ordre chakal";
-    $retour["result"]['room'] = $tab_concat;
-
-    $json_tab = json_encode($retour);
-
-    return $json_tab;
-}
-
-
-function postARoom($room_name, $room_describ){
-    postRoom($room_name, $room_describ);
-}
-
-?>

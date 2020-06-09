@@ -1,4 +1,0 @@
-# catacombes API
-
-### documentation
-
