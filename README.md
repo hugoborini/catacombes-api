@@ -1,4 +1,4 @@
-# kta_api
+# kta_api :alien:
 
 
 ## usage
@@ -22,8 +22,9 @@ to get all room :
 
 
 ### api by 
- - Hugo Cordillot
- - Nawel Berrichi
- - Melina Chamayou
- - Hugo Borini
- - Constance Pétillot
+ - Hugo Cordillot :building_construction:
+ - Nawel Berrichi :zap:
+ - Melina Chamayou :sparkles:
+ - Hugo Borini :penguin:
+ - Constance Pétillot :iphone:
+ - Camille Cerin :rocket:
