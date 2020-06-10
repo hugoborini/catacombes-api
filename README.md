@@ -3,7 +3,7 @@
 
 ## usage
 
-the bas url is :
+the base url is :
 
     {url}
 
@@ -13,7 +13,7 @@ to get all room :
  to get one room :
  
 
-    /catacomble-api/room/name%of%the%room
+    /catacomble-api/room/id
   
 
 if you want the pic you need to put in front the path :
