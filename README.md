@@ -16,6 +16,14 @@ to get all room :
     /catacomble-api/room/name%of%the%room
   
 
+if you want the pic you need to put in front the path :
+
+    {url}/img/{the poster path}
+
+you can do it with a javacript fonction who is
+
+        `function getPics(pics){
+            return ``{url}/img/${pics}``}`
 
 
 
