@@ -11,9 +11,12 @@ use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Psr7\Response as resMid; 
 
 // Composer autoloader
+
 require __DIR__ . '/vendor/autoload.php';
 require "class/middleWare.php";
 require "controller/controller.php";
+
+
 
 
 
@@ -33,6 +36,7 @@ $app->get('/', function(Request $request, Response $response){
     return $response;
 });
 
+
 $app->group('/room', function(RouteCollectorProxy $group){
     $group->get("/", function(Request $request, Response $response){
         $response->getBody();
@@ -48,5 +52,18 @@ $app->group('/room', function(RouteCollectorProxy $group){
         return $response;
     });
 });
+
+// $app->post('/postroom', function(Request $request, Response $response) {
+//         $response->getBody();
+//         if(isset($_POST['name']) && isset($_POST['path_img']) && isset($_POST['description'])) {
+//             postARoom($_POST['name'], $_POST['path_img'], $_POST['description']);
+//         }
+//         else {
+//             header('Location: https://hapi.dev/');
+//             exit;
+//         }
+//         return $response;
+// });
+
 
 $app->run();

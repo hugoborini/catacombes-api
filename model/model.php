@@ -1,6 +1,6 @@
 <?php
 function dbConnect() {
-    try { $bdd = new PDO('mysql:host=localhost;dbname=catacombes;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    try { $bdd = new PDO('mysql:host=localhost;dbname=catacombes;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     catch (Exception  $e) {
         $retour["sucess"] = false;
@@ -19,12 +19,12 @@ function getAllRoom(){
     return $req;
 }
 
-function getRoom($room){
+function getRoom($id_room){
     $bdd = dbConnect();
     
-    $req = $bdd->prepare("SELECT * from room WHERE name = :name");
+    $req = $bdd->prepare("SELECT * from room WHERE id_room = :id_room");
     $req->execute([
-        "name" => $room
+        "id_room" => $id_room
     ]);
 
     return $req;
@@ -39,7 +39,15 @@ function getPicsAndFacts($id_room){
     ]);
 
     return $req;
-
 }
 
+function postRoom($name, $path_img, $description ){
+    $bdd = dbConnect();
+    $req = $bdd->prepare('INSERT INTO `room`(`name`, `path_img`, `description`) VALUES (:name, :path_img, :description)');
+    $req->execute(array(
+        'name' => $name,
+        'path_img' => $path_img,
+        'description' => $description
+    ));
+}
 

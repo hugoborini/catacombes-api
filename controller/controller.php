@@ -1,30 +1,28 @@
 <?php
 require "model/model.php";
+// require "model/modelPost.php";
+
 
 function createJson ($req){
     $i = 0;
     $y = 0;
     $tab_tmp =[];
-    $x = 0;
 
     while ($data = $req->fetch()){
         $tab_tmp[$i]['id'] = $data['id_room'];
         $tab_tmp[$i]['room_name'] = $data["name"];
         $tab_tmp[$i]['room_describ'] = $data['description'];
+        $tab_tmp[$i]['poster_principale'] = $data['path_img'];
         $picsFacts = getPicsAndFacts($data['id_room']);
         while($data_picsFacts = $picsFacts->fetch()){
             $y++;
-            if($data['id_room'] == $data_picsFacts['id_room']){
-                $tab_tmp[$i]['pics']["p" .$y] = $data_picsFacts["name"];
+                $tab_tmp[$i]['pics']["p" . $y] = $data_picsFacts["name"];
                 if (!empty($data_picsFacts["fact"])){
-                    $x++;
-                    $tab_tmp[$i]['facts']["f" . $x] = $data_picsFacts['fact'];
+                    $tab_tmp[$i]['facts']["p" . $y] = $data_picsFacts['fact'];
                 }
-                
-            }
         }
         $y = 0;
-        $x = 0;
+
         $i++;
     }
 
@@ -55,3 +53,10 @@ function getRoomToJson($room){
     return $json_tab;
 
 }
+function postARoom($name, $path_img, $description){
+    
+    $req =  postRoom($name, $path_img, $description );
+ 
+    return $req;
+ }
+ 
