@@ -26,12 +26,12 @@ to get all room :
 
 if you want the pic you need to put in front the path :
 
-    kta-api.vhswebs.com/img/{the poster path}
+    kta-api.vhswebs.com/image/{the poster path}
 
 you can do it with a javacript fonction who is :
 
         `function getPics(pics){
-            return ``kta-api.vhswebs.com/img/${pics}``}`
+            return ``kta-api.vhswebs.com/image/${pics}``}`
 
 ## ! all the result is return in json on a tab results !
 
