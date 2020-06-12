@@ -1,10 +1,10 @@
 # kta_api :alien:
 
-# importan
+# important
 
-vous dite a p i ou api gennre comme le mot happy ?
+vous dite A.P.I ou api genre comme le mot happy ?
 
-envoyer vos reponse par mail a hugo.borini@hetic.net merci d'avance 
+envoyez vos reponses par mail à hugo.borini@hetic.net merci d'avance 
 
 cordialement hugo
 
