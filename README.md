@@ -8,7 +8,6 @@ envoyer vos reponse par mail a hugo.borini@hetic.net merci d'avance
 
 cordialement hugo
 
-# fin
 
 ## usage
 
