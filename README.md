@@ -5,28 +5,27 @@
 
 the base url is :
 
-    {url}
+    kta-api.vhswebs.com
 
 to get all room :
 
-    /catacomble-api/room
+    kta-api.vhswebs.com/catacomble-api/room/
  to get one room :
  
 
-    /catacomble-api/room/id
+    kta-api.vhswebs.com/catacomble-api/room/id
   
 
 if you want the pic you need to put in front the path :
 
-    {url}/img/{the poster path}
+    kta-api.vhswebs.com/img/{the poster path}
 
-you can do it with a javacript fonction who is
+you can do it with a javacript fonction who is :
 
         `function getPics(pics){
-            return ``{url}/img/${pics}``}`
+            return ``kta-api.vhswebs.com/img/${pics}``}`
 
-
-
+! all the result is return in json on a tab results !
 
 
 ### api by 
