@@ -1,5 +1,14 @@
 # kta_api :alien:
 
+# importan
+
+vous dite a p i ou api gennre comme le mot happy ?
+
+envoyer vos reponse par mail a hugo.borini@hetic.net merci d'avance 
+
+cordialement hugo
+
+# fin
 
 ## usage
 
