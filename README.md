@@ -25,7 +25,7 @@ you can do it with a javacript fonction who is :
         `function getPics(pics){
             return ``kta-api.vhswebs.com/img/${pics}``}`
 
-! all the result is return in json on a tab results !
+## ! all the result is return in json on a tab results !
 
 
 ### api by 
