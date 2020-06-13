@@ -26,7 +26,7 @@ to get all room :
 
 if you want the pic you need to put in front the path :
 
-    kta-api.vhswebs.com/image/{the poster path}
+    kta-api.vhswebs.com/images/{the poster path}
 
 you can do it with a javacript fonction who is :
 
