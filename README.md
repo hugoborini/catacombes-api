@@ -17,11 +17,11 @@ the base url is :
 
 to get all room :
 
-    kta-api.vhswebs.com/catacomble-api/room/
+    kta-api.vhswebs.com/room/
  to get one room :
  
 
-    kta-api.vhswebs.com/catacomble-api/room/id
+    kta-api.vhswebs.com/room/id
   
 
 if you want the pic you need to put in front the path :
