@@ -15,7 +15,7 @@ use Slim\Psr7\Response as resMid;
 require __DIR__ . '/vendor/autoload.php';
 require "class/middleWare.php";
 require "controller/controller.php";
-
+require_once "vendor/erusev/parsedown/Parsedown.php";
 
 
 
@@ -51,6 +51,13 @@ $app->group('/room', function(RouteCollectorProxy $group){
         echo getRoomToJson($room);
         return $response;
     });
+});
+
+$app->get('/uiui', function(Request $request, Response $response){
+    $response->getBody();
+    $Parsedown = new Parsedown();
+    echo $Parsedown->text('Hello _Parsedown_!');
+    return $response;
 });
 
 // $app->post('/postroom', function(Request $request, Response $response) {

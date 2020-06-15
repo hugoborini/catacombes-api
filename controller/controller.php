@@ -6,6 +6,7 @@ require "model/model.php";
 function createJson ($req){
     $i = 0;
     $y = 0;
+    $x = 0;
     $tab_tmp =[];
 
     while ($data = $req->fetch()){
@@ -16,16 +17,21 @@ function createJson ($req){
         $picsFacts = getPicsAndFacts($data['id_room']);
         while($data_picsFacts = $picsFacts->fetch()){
             $y++;
+            
             if (!empty($data_picsFacts["fact"])){
                 
-                $tab_tmp[$i]['picsAndFacts']["p" . $y] = $data_picsFacts["name"];
-                $tab_tmp[$i]['picsAndFacts']["f" . $y] = $data_picsFacts["fact"];
+                $tab_tmp[$i]['picsAndFacts']["pf" . $x]["p"] = $data_picsFacts["name"];
+                $tab_tmp[$i]['picsAndFacts']["pf" . $x]["f"] = $data_picsFacts["fact"];
+                $x++;
             }else {
                 $tab_tmp[$i]['pics']['p' . $y] = $data_picsFacts["name"];
             }
+              
+           ;
+            
         }
         $y = 0;
-
+        $x = 0;
         $i++;
     }
 
