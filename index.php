@@ -23,7 +23,7 @@ require "controller/controller.php";
 // Instanciation de l'application Slim
 $app = AppFactory::create();
 
-$app->setBasePath("/catacombes-api");
+ // $app->setBasePath("/catacombes-api");
 
 $app->getRouteCollector()
     ->setDefaultInvocationStrategy(new RequestResponseArgs());
