@@ -16,10 +16,13 @@ function createJson ($req){
         $picsFacts = getPicsAndFacts($data['id_room']);
         while($data_picsFacts = $picsFacts->fetch()){
             $y++;
-                $tab_tmp[$i]['pics']["p" . $y] = $data_picsFacts["name"];
-                if (!empty($data_picsFacts["fact"])){
-                    $tab_tmp[$i]['facts']["p" . $y] = $data_picsFacts['fact'];
-                }
+            if (!empty($data_picsFacts["fact"])){
+                
+                $tab_tmp[$i]['picsAndFacts']["p" . $y] = $data_picsFacts["name"];
+                $tab_tmp[$i]['picsAndFacts']["f" . $y] = $data_picsFacts["fact"];
+            }else {
+                $tab_tmp[$i]['pics']['p' . $y] = $data_picsFacts["name"];
+            }
         }
         $y = 0;
 
