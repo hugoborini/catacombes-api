@@ -23,7 +23,7 @@ require_once "vendor/erusev/parsedown/Parsedown.php";
 // Instanciation de l'application Slim
 $app = AppFactory::create();
 
- // $app->setBasePath("/catacombes-api");
+$app->setBasePath("/catacombes-api");
 
 $app->getRouteCollector()
     ->setDefaultInvocationStrategy(new RequestResponseArgs());
@@ -41,7 +41,14 @@ $app->group('/room', function(RouteCollectorProxy $group){
     $group->get("/", function(Request $request, Response $response){
         $response->getBody();
         header('Content-Type: application/json');
-        echo getAllRoomToJson();
+        echo getAllRoomToJson("true");
+        return $response;
+    });
+
+    $group->get("/unOfficial", function(Request $request, Response $response){
+        $response->getBody();
+        header('Content-Type: application/json');
+        echo getAllRoomToJson("false");
         return $response;
     });
 

@@ -38,8 +38,8 @@ function createJson ($req){
     return $tab_tmp;
 }
 
-function getAllRoomToJson(){
-    $req = getAllRoom();
+function getAllRoomToJson($isOfficial){
+    $req = getAllRoom($isOfficial);
 
     $tab_tmp = createJson($req);
 
