@@ -15,9 +15,13 @@ the base url is :
 
     kta-api.vhswebs.com
 
-to get all room :
+to get all official room :
 
     kta-api.vhswebs.com/room/
+    
+to get all non-official room :
+ http://kta-api.vhswebs.com/room/unofficial
+ 
  to get one room :
  
 
